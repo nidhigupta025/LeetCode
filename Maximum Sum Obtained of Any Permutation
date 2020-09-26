@@ -1,0 +1,33 @@
+//LeetCode 1589
+
+class Solution {
+public:
+    int maxSumRangeQuery(vector<int>& nums, vector<vector<int>>& requests) {
+        int n=nums.size();
+        vector<int> count(n,0);
+        for(auto req:requests)
+        {
+            ++count[req[0]];
+            if(req[1]!=n-1)
+                --count[req[1]+1];
+        }
+        
+        for(int i=1;i<n;i++)
+        {
+            count[i]+=count[i-1];
+        }
+        sort(count.begin(),count.end());
+        sort(nums.begin(),nums.end());
+        long long answer=0;
+        const int mod=1e9+7;
+        for(int i=0;i<n;i++)
+        {
+            answer= (answer+(long long)nums[i]*count[i])%mod;
+        }
+        
+        return answer;
+        
+        
+        
+    }
+};
