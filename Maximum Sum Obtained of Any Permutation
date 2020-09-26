@@ -1,5 +1,5 @@
 //LeetCode 1589
-
+//https://leetcode.com/problems/maximum-sum-obtained-of-any-permutation/
 class Solution {
 public:
     int maxSumRangeQuery(vector<int>& nums, vector<vector<int>>& requests) {
@@ -26,8 +26,5 @@ public:
         }
         
         return answer;
-        
-        
-        
     }
 };
